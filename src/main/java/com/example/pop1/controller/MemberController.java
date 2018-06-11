@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.pop.exception.ResourceNotFoundException;
+import com.example.pop1.exception.ResourceNotFoundException;
 import com.example.pop1.model.MemberModel;
 import com.example.pop1.repository.MemberRepository;
 
@@ -51,7 +51,7 @@ public class MemberController {
 			);
 	}
 	
-	// Update a Note
+	// Update a Member
 	@PutMapping("/member/{id}")
 	public MemberModel updateMember(@PathVariable(value="id") Long memberId,@Valid @RequestBody MemberModel memberDetail) {
 		
@@ -60,7 +60,6 @@ public class MemberController {
 				);
 		member.setFirstName(memberDetail.getFirstName());
 		member.setLastName(memberDetail.getLastName());
-		member.setUsername(memberDetail.getUsername());
 		
 		MemberModel updateMember = memberRepository.save(member);
 		return updateMember;
